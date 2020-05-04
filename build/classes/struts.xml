@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  <constant name="struts.devMode" value="true" />
+  <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+  
+  <constant name="struts.objectFactory" value="spring"/>
+
+  
+  <package name="basicstruts" extends="struts-default">
+  
+  <action name="CustomerAction_login" class="customerAction" method="login">
+  	<result name="login">main.jsp</result>
+  	<result name="error">error.jsp</result>
+  </action>
+  <action name="CustomerAction_save" class="customerAction" method="save">
+  	<result name="save" type="redirect">CustomerAction_list</result>
+  </action>
+  <action name="CustomerAction_delete" class="customerAction" method="delete">
+  	<result name="delete" type="redirect">CustomerAction_list</result>
+  </action>
+  <action name="CustomerAction_update" class="customerAction" method="update_">
+  	<result name="update" type="redirect">CustomerAction_list</result>
+  </action>
+  <action name="CustomerAction_edit" class="customerAction" method="edit">
+  	<result name="edit" >update.jsp</result>
+  </action>
+  <action name="CustomerAction_list" class="customerAction" method="list">
+    <result name="list" >list.jsp</result>
+  </action>
+</package>
+</struts>
